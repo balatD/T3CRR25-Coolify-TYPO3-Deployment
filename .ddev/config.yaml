@@ -1,0 +1,23 @@
+name: t3crr25.balatinac.com
+type: typo3
+docroot: public
+webserver_type: apache-fpm
+php_version: "8.4"
+database:
+  type: mariadb
+  version: "10.5"
+composer_version: "2"
+router_http_port: "80"
+router_https_port: "443"
+xdebug_enabled: false
+project_tld: dev.arpa
+use_dns_when_possible: true
+webimage_extra_packages: [ "graphicsmagick" ]
+web_environment:
+  - TYPO3_CONTEXT=Development
+  - ADDITIONAL_CONFIG_FILE=../../../additional.php
+
+# Hook to symlink mounted additional.php from home to working directory
+hooks:
+  post-start:
+    - exec: sudo ln -s ~/additional.php /var

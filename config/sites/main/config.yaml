@@ -1,0 +1,42 @@
+base: /
+baseVariants:
+  -
+    base: 'https://t3crr25.balatinac.com.dev.arpa/'
+    condition: 'applicationContext == "Development"'
+  -
+    base: 'https://t3crr25.balatinac.com/'
+    condition: 'applicationContext == "Production"'
+
+errorHandling:
+  -
+    errorCode: 404
+    errorHandler: Page
+    errorContentSource: 't3://page?uid=24'
+languages:
+  -
+    title: Deutsch
+    enabled: true
+    languageId: 0
+    base: /
+    typo3Language: de
+    locale: de_DE.UTF-8
+    iso-639-1: de
+    navigationTitle: Deutsch
+    hreflang: de
+    direction: ltr
+    flag: de
+    websiteTitle: ''
+rootPageId: 4
+routeEnhancers:
+  PageTypeSuffix:
+    type: PageType
+    map:
+      .html: 0
+      sitemap.xml: 1533906435
+routes:
+  -
+    route: robots.txt
+    type: staticText
+    content: "User-agent: *\r\nDisallow: /typo3/\r\nSitemap: https://blog.cp-compartner.de/sitemap.xml"
+txCsseoXdefault: 0
+websiteTitle: 'T3CRR25 Coolify Deployment Test'

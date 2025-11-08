@@ -1,0 +1,27 @@
+{
+	"name": "cp-compartner/t3crr25-coolify",
+	"repositories": {
+		"typo3": {
+			"type": "composer",
+			"url": "https://composer.typo3.org"
+		}
+	},
+	"require": {
+      "typo3/cms-introduction": "^4",
+      "helhum/typo3-console": "^8.0.1"
+    },
+	"minimum-stability": "dev",
+	"prefer-stable" : true,
+	"config": {
+		"platform": {
+			"php": "8.4",
+			"ext-gd": "8.1.1",
+			"ext-intl": "8.1.1"
+		},
+		"allow-plugins": {
+			"typo3/class-alias-loader": true,
+			"typo3/cms-composer-installers": true,
+			"php-http/discovery": true
+		}
+	}
+}

@@ -1,0 +1,88 @@
+# Inherits default site-unspecific frontend policy mutations (enabled per default)
+inheritDefault: true
+mutations:
+  default:
+    mode: set
+    directive: 'default-src'
+    sources:
+      - "'self'"
+      - "'wasm-unsafe-eval'"
+
+  font:
+    mode: set
+    directive: 'font-src'
+    sources:
+      - "'self'"
+      - 'data:'
+      - 'https://fonts.gstatic.com/'
+
+  frame:
+    mode: extend
+    directive: 'frame-src'
+    sources:
+      - 'https://www.youtube-nocookie.com'
+
+  img:
+    mode: set
+    directive: 'img-src'
+    sources:
+      - "'self'"
+      - 'data:'
+      - 'https://fonts.gstatic.com/'
+      - 'https://i.ytimg.com/'
+      - 'https://i.vimeocdn.com'
+      - 'https://imgsct.cookiebot.com/'
+      - 'https://placehold.co'
+
+  script-src:
+    mode: set
+    directive: 'script-src'
+    sources:
+      - "'self'"
+      - "'wasm-unsafe-eval'"
+
+  script:
+    mode: extend
+    directive: 'script-src'
+    sources:
+      - "'self'"
+      - "'unsafe-inline'"
+
+  script-src-elem:
+    mode: set
+    directive: 'script-src-elem'
+    sources:
+      - "'self'"
+      - "'unsafe-inline'"
+      - 'blob:'
+
+  style-src:
+    mode: set
+    directive: 'style-src'
+    sources:
+      - "'self'"
+      - "'unsafe-inline'"
+
+  style-src-elem:
+    mode: set
+    directive: 'style-src-elem'
+    sources:
+      - "'self'"
+      - "'unsafe-inline'"
+      - 'https://consent.cookiebot.com/'
+      - 'https://consentcdn.cookiebot.com/'
+
+  worker-src:
+    mode: set
+    directive: 'worker-src'
+    sources:
+      - "'self'"
+      - 'blob:'
+
+  connect-src:
+    mode: extend
+    directive: 'connect-src'
+    sources:
+      - 'https://www.google.com'
+      - 'https://consentcdn.cookiebot.com'
+

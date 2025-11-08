@@ -1,0 +1,16 @@
+# documentation: https://https://docs.typo3.org/
+# slogan: TYPO3 CMS
+# tags: CMS,TYPO3
+
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    volumes:
+      - fileadmin_data:/var/www/html/public/fileadmin
+    environment:
+      - SERVICE_FQDN_TYPO3
+
+volumes:
+  fileadmin_data:
+    driver: local
