@@ -15,12 +15,13 @@ WORKDIR /var/www/html
 FROM base as config
 
 COPY config/ config
-# COPY var/ var
 COPY public/ public
 # Exclude fileadmin directory from copy
 RUN rm -rf /var/www/html/public/fileadmin
 COPY composer.json composer.json
 COPY composer.lock composer.lock
+RUN mkdir var
+RUN chown -R www-data:www-data var
 
 FROM config as composer
 
