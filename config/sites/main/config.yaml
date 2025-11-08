@@ -26,7 +26,7 @@ languages:
     direction: ltr
     flag: de
     websiteTitle: ''
-rootPageId: 4
+rootPageId: 1
 routeEnhancers:
   PageTypeSuffix:
     type: PageType
