@@ -15,7 +15,6 @@ WORKDIR /var/www/html
 FROM base as config
 
 COPY config/ config
-COPY packages/ packages
 # COPY var/ var
 COPY public/ public
 # Exclude fileadmin directory from copy
