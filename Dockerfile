@@ -1,6 +1,4 @@
 FROM php:8.3-apache as base
-RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
-USER www-data
 
 RUN apt-get update && \
     apt-get install -y libicu-dev
@@ -60,5 +58,7 @@ RUN mkdir -p /var/www/html/public/fileadmin
 RUN chown -R www-data:www-data /var/www/html
 
 FROM access_rights as typo3_commands
+RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
+USER www-data
 
 EXPOSE 8080
