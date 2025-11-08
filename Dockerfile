@@ -22,7 +22,6 @@ COPY public/ public
 RUN rm -rf /var/www/html/public/fileadmin
 COPY composer.json composer.json
 COPY composer.lock composer.lock
-COPY auth.json auth.json
 
 FROM config as composer
 
@@ -53,7 +52,5 @@ RUN mkdir -p /var/www/html/public/fileadmin
 RUN chown -R www-data:www-data /var/www/html
 
 FROM access_rights as typo3_commands
-
-# @TODO add typo3 console commands
 
 EXPOSE 8080
