@@ -1,4 +1,6 @@
 FROM php:8.3-apache as base
+RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
+USER www-data
 
 RUN apt-get update && \
     apt-get install -y libicu-dev
