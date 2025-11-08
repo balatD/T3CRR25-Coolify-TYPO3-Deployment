@@ -39,10 +39,7 @@ This repository contains a boilerplate setup for deploying TYPO3 CMS using Cooli
 Required environment variables for your Coolify deployment:
 
 ```
-HTTP_PRODUCTION_DOMAIN
-HTTP_PRODUCTION_ROOT
-HTTP_STAGING_DOMAIN
-HTTP_STAGING_ROOT
+HTTP_DOMAIN
 DB_HOST=your-database-host
 DB_NAME=your-database-name
 DB_USER=your-database-user
@@ -110,7 +107,5 @@ Common issues and solutions:
 2. **Database connection issues**: Verify environment variables and network settings
 3. **Cache problems**: Clear all caches and verify file permissions
 
-## Open TODOs
-
-Right now, there is no simple way to add TYPO3 Console Commands to the deployment, as the external DB Service can't be interpreted by Coolify.
-
+## Post Deployment Commands
+php vendor/bin/typo3 database:updateschema && php vendor/bin/typo3 install:fixfolderstructure && php vendor/bin/typo3 extension:setup
