@@ -37,7 +37,12 @@ RUN composer install --no-dev
 
 COPY deployment/config/httpd/production.conf /etc/apache2/sites-available/production.conf
 COPY deployment/config/php/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
-COPY deployment/config/php/zz-custom.ini /usr/local/etc/php/conf.d/zz-custom.ini
+COPY deployment/config/php/php.ini /usr/local/etc/php/php.ini
+
+RUN touch /var/log/php_errors.log \
+    && chown www-data:www-data /var/log/php_errors.log \
+    && chmod 664 /var/log/php_errors.log
+
 
 FROM composer as access_rights
 
