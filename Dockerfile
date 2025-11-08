@@ -37,6 +37,7 @@ RUN composer install --no-dev
 
 COPY deployment/config/httpd/production.conf /etc/apache2/sites-available/production.conf
 COPY deployment/config/php/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
+COPY deployment/config/php/logging.ini /usr/local/etc/php/conf.d/logging.ini
 
 FROM composer as access_rights
 
